@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import HomeBlogpost from "../components/blogposts/HomeBlogpost.jsx";
+import HomeLogin from "../components/login/HomeLogin.jsx";
 import axios from "axios";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
 
   return (
     <div>
+      <HomeLogin></HomeLogin>
       <div className="posts-cntr">
         {postsData &&
           postsData.map((post) => {

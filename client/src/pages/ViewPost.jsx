@@ -5,7 +5,7 @@ import { useCallback } from "react";
 import SingleBlogpost from "../components/blogposts/SingleBlogpost.jsx";
 import axios from "axios";
 
-export default function Post() {
+export default function ViewPost() {
   const [postData, setPostData] = useState(null);
   const { postId } = useParams();
 

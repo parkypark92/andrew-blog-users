@@ -1,6 +1,6 @@
 .container {
   background-color: #f0e9e1;
-  width: 640px;
+  max-width: 640px;
   padding: 16px;
   text-align: left;
   margin-bottom: 16px;

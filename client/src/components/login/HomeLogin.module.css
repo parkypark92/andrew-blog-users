@@ -1,0 +1,30 @@
+.loginBox {
+  position: fixed;
+  right: 32px;
+  height: 200px;
+  width: 400px;
+  border: 1px solid black;
+  border-radius: 16px;
+  background-color: #fff;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  font-size: medium;
+  padding: 8px;
+  border-radius: 12px;
+}
+
+button {
+  width: fit-content;
+}

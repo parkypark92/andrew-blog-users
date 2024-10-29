@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
-import Post from "./pages/Post";
+import ViewPost from "./pages/ViewPost";
 // import CreatePost from "./pages/CreatePost";
 // import CreateUser from "./pages/CreateUser";
 
@@ -12,7 +12,7 @@ export default function Router() {
     },
     {
       path: "blogposts/:postId",
-      element: <Post />,
+      element: <ViewPost />,
     },
     // {
     //   path: "create-post",
