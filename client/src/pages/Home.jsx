@@ -7,6 +7,7 @@ import axios from "axios";
 
 export default function Home() {
   const [postsData, setPostsData] = useState(null);
+  // const [user, setUser] = useState(null);
 
   useEffect(() => {
     async function getPostData() {
