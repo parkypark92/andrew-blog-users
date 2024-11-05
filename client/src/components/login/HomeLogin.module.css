@@ -1,7 +1,7 @@
 .loginBox {
   position: fixed;
   right: 32px;
-  height: 200px;
+  min-height: 200px;
   width: 400px;
   border: 1px solid black;
   border-radius: 16px;
@@ -27,4 +27,8 @@ input {
 
 button {
   width: fit-content;
+}
+
+.failMessage {
+  color: red;
 }

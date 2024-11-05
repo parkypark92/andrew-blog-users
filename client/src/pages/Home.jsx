@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import HomeBlogpost from "../components/blogposts/HomeBlogpost.jsx";
 import HomeLogin from "../components/login/HomeLogin.jsx";
 import axios from "axios";
@@ -30,12 +29,6 @@ export default function Home() {
             );
           })}
       </div>
-      <Link to="/create-post">
-        <button>Create Post</button>
-      </Link>
-      <Link to="/create-user">
-        <button>Create User</button>
-      </Link>
     </div>
   );
 }
