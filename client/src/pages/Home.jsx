@@ -1,12 +1,35 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import HomeBlogpost from "../components/blogposts/HomeBlogpost.jsx";
-import HomeLogin from "../components/login/HomeLogin.jsx";
 import axios from "axios";
+import PropTypes from "prop-types";
 
-export default function Home() {
+export default function Home({ user, setUser }) {
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    const fetchCurrentUser = async () => {
+      const headers = { Authorization: token };
+      const response = await axios.get(
+        "http://localhost:3000/users/protected",
+        {
+          headers,
+        }
+      );
+      console.log(setUser);
+
+      setUser(response.data);
+    };
+    if (token) {
+      fetchCurrentUser();
+    } else {
+      navigate("/login");
+    }
+  }, []);
+
   const [postsData, setPostsData] = useState(null);
-  // const [user, setUser] = useState(null);
 
   useEffect(() => {
     async function getPostData() {
@@ -16,9 +39,14 @@ export default function Home() {
     getPostData();
   }, []);
 
+  function handleLogout() {
+    localStorage.removeItem("token");
+    navigate("/login");
+  }
+
   return (
     <div>
-      <HomeLogin></HomeLogin>
+      <h2>Hello {user.username}</h2>
       <div className="posts-cntr">
         {postsData &&
           postsData.map((post) => {
@@ -29,6 +57,14 @@ export default function Home() {
             );
           })}
       </div>
+      <button type="button" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   );
 }
+
+Home.propTypes = {
+  user: PropTypes.object,
+  setUser: PropTypes.func,
+};

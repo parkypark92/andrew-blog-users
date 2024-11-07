@@ -1,9 +1,9 @@
-import styles from "./HomeLogin.module.css";
+import styles from "./LoginBox.module.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-export default function HomeLogin() {
+export default function LoginBox() {
   const [loginFailMessage, setLoginFailMessage] = useState("");
   const sendLoginData = async (e) => {
     e.preventDefault();
@@ -17,7 +17,7 @@ export default function HomeLogin() {
     if (response.data.status !== 200) {
       setLoginFailMessage(response.data.msg);
     } else {
-      localStorage.setItem("Authorization", response.data.token);
+      localStorage.setItem("token", response.data.token);
     }
   };
   return (

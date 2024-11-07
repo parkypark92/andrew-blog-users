@@ -2,14 +2,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import ViewPost from "./pages/ViewPost";
 import SignUp from "./pages/SignUp";
-// import CreatePost from "./pages/CreatePost";
-// import CreateUser from "./pages/CreateUser";
+import Login from "./pages/Login";
+import PropTypes from "prop-types";
 
-export default function Router() {
+export default function Router({ user, setUser }) {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home />,
+      element: <Home user={user} setUser={setUser} />,
     },
     {
       path: "blogposts/:postId",
@@ -19,15 +19,16 @@ export default function Router() {
       path: "signup",
       element: <SignUp />,
     },
-    // {
-    //   path: "create-post",
-    //   element: <CreatePost />,
-    // },
-    // {
-    //   path: "create-user",
-    //   element: <CreateUser />,
-    // },
+    {
+      path: "login",
+      element: <Login />,
+    },
   ]);
 
   return <RouterProvider router={router} />;
 }
+
+Router.propTypes = {
+  user: PropTypes.object,
+  setUser: PropTypes.func,
+};

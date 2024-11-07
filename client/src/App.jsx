@@ -1,8 +1,9 @@
 import "./App.css";
+import { useState } from "react";
 import Router from "./Router";
 
-function App() {
-  return <Router />;
-}
+export default function App() {
+  const [user, setUser] = useState(null);
 
-export default App;
+  return <Router user={user} setUser={setUser} />;
+}
