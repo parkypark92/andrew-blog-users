@@ -2,9 +2,11 @@ import styles from "./LoginBox.module.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginBox() {
   const [loginFailMessage, setLoginFailMessage] = useState("");
+  const navigate = useNavigate();
   const sendLoginData = async (e) => {
     e.preventDefault();
     const formData = {
@@ -18,6 +20,7 @@ export default function LoginBox() {
       setLoginFailMessage(response.data.msg);
     } else {
       localStorage.setItem("token", response.data.token);
+      navigate("/");
     }
   };
   return (

@@ -18,9 +18,11 @@ export default function Home({ user, setUser }) {
           headers,
         }
       );
-      console.log(setUser);
-
-      setUser(response.data);
+      if (response.data.statusCode == 401) {
+        navigate("/login");
+      } else {
+        setUser(response.data);
+      }
     };
     if (token) {
       fetchCurrentUser();
@@ -46,7 +48,7 @@ export default function Home({ user, setUser }) {
 
   return (
     <div>
-      <h2>Hello {user.username}</h2>
+      {user && <h2>Hello {user.username}</h2>}
       <div className="posts-cntr">
         {postsData &&
           postsData.map((post) => {
